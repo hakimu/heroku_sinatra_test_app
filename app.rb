@@ -4,5 +4,5 @@ require 'sinatra'
 require 'newrelic_rpm'
 
 get '/' do
-	"HellO!!!"
+	"Hello!!!"
 end
