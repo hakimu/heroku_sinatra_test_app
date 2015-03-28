@@ -14,3 +14,7 @@ end
 get '/test' do
 	409
 end
+
+get '/string' do
+	'Foo'
+end
