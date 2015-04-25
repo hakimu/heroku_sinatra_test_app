@@ -4,7 +4,9 @@ require 'sinatra'
 require 'newrelic_rpm'
 
 get '/' do
-	"Hello!!!"
+	@word = 'foo'.reverse
+	@time = Time.now
+	erb :home
 end
 
 error 409 do
