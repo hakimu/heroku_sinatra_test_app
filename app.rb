@@ -18,5 +18,11 @@ get '/test' do
 end
 
 get '/string' do
-	'Foo'
+	Foo
+end
+
+get '/custom' do
+	@number = rand(100)
+	::NewRelic::Agent.record_metric('Custom/testing/alert',@number)
+	erb :custom
 end
