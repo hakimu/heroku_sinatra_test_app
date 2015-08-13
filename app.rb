@@ -17,12 +17,18 @@ get '/test' do
 	409
 end
 
-get '/string' do
-	Foo
+get '/show' do
+	sleep 3
+	"Testing stuff"
 end
 
 get '/custom' do
 	@number = rand(100)
 	::NewRelic::Agent.record_metric('Custom/testing/alert',@number)
 	erb :custom
+end
+
+get '/foo' do
+	headers['Content-Type'] = '***/***'
+	print headers
 end
