@@ -1,7 +1,19 @@
 require 'json'
 require 'unicorn'
 require 'sinatra'
+require 'logger'
 require 'newrelic_rpm'
+
+get '/bye' do
+	my_hash = {"day" => "saturday"}
+	my_json = JSON.generate(my_hash)
+	my_json
+end
+
+get '/grab' do
+	uri = URI('http://localhost:4567/end')
+	Net::HTTP.get(uri)
+end
 
 get '/' do
 	@word = 'foo'.reverse
@@ -29,6 +41,20 @@ get '/custom' do
 end
 
 get '/foo' do
-	headers['Content-Type'] = '***/***'
+	headers['Content-Type'] = 'text/plain'
 	print headers
+end
+
+get '/gc' do
+	begin
+		logger = Logger.new('logfile.log')
+		#file = File.open('foo.log', File::WRONGLY | File::APPEND)
+		#logger = Logger.new(file)
+		pid = Process.pid
+		logger.info "I just added the PID #{pid}"
+		["Theres no error"]
+	rescue
+		pid = Process.pid
+	  ["The PID is #{pid}", " The and again is #{pid}"]
+	end
 end
