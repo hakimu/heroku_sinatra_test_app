@@ -2,7 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     kgio (2.9.3)
-    newrelic_rpm (3.10.0.279)
+    newrelic_rpm (3.13.0.299)
     rack (1.6.0)
     rack-protection (1.5.3)
       rack
