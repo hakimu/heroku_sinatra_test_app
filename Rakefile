@@ -12,5 +12,12 @@ task :custom do
 	Cart.new.checkout
 end
 
+task :demo do
+	def adder(x,y)
+		puts x + y
+	end
+	adder(50,5)
+end
+
 
 
