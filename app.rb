@@ -1,5 +1,5 @@
 require 'json'
-require 'unicorn'
+require 'puma'
 require 'sinatra'
 require 'logger'
 require 'newrelic_rpm'
