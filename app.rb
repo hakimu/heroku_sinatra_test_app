@@ -4,6 +4,7 @@ require 'sinatra'
 require 'logger'
 require 'newrelic_rpm'
 
+
 get '/bye' do
 	my_hash = {"day" => "saturday"}
 	my_json = JSON.generate(my_hash)
@@ -29,6 +30,10 @@ get '/test' do
 	409
 end
 
+get '/deploy' do
+	"testing deployment"
+end
+
 get '/show' do
 	sleep 3
 	"Testing stuff"
@@ -44,6 +49,7 @@ get '/foo' do
 	headers['Content-Type'] = 'text/plain'
 	print headers
 end
+
 
 get '/gc' do
 	begin
