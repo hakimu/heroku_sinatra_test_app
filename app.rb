@@ -2,6 +2,7 @@ require 'json'
 require 'puma'
 require 'sinatra'
 require 'logger'
+require 'sidekiq'
 require 'newrelic_rpm'
 
 
@@ -64,3 +65,14 @@ get '/gc' do
 	  ["The PID is #{pid}", " The and again is #{pid}"]
 	end
 end
+
+class BackgroundTask
+	include Sidekiq::Worker
+
+	def perform
+		sleep 5
+		puts 'Goodnight'
+	end
+end
+
+BackgroundTask.perform_async

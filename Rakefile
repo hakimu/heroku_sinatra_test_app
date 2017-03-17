@@ -1,6 +1,7 @@
 require 'json'
 require 'new_relic/agent'
-NewRelic::Agent.manual_start(:sync_startup => true)
+#require 'tasks/newrelic'
+#NewRelic::Agent.manual_start(:sync_startup => true)
 
 task :custom do
 	class Cart
