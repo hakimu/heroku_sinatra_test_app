@@ -12,10 +12,10 @@ get '/bye' do
 	my_json
 end
 
-get '/grab' do
-	uri = URI('http://localhost:4567/end')
-	Net::HTTP.get(uri)
-end
+# get '/grab' do
+# 	uri = URI('http://localhost:4567/end')
+# 	Net::HTTP.get(uri)
+# end
 
 get '/' do
 	@word = 'foo'.reverse
@@ -66,13 +66,3 @@ get '/gc' do
 	end
 end
 
-class BackgroundTask
-	include Sidekiq::Worker
-
-	def perform
-		sleep 5
-		puts 'Goodnight'
-	end
-end
-
-BackgroundTask.perform_async
