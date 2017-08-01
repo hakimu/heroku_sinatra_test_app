@@ -1,1 +1,1 @@
-web: NEW_RELIC_AGENT_ENABLED=false bundle exec puma -C config/puma.rb 
+web: bundle exec puma -C config/puma.rb 
